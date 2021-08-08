@@ -1,0 +1,5 @@
+model_setup.img_size=224
+model_setup.num_classes=1622
+model_setup.model_type = 'ViT-B_16'
+model_setup.pretrained_ckpt='checkpoints/pretrained_ckpts/ViT-B_16.npz'
+model_setup.dataset='omniglot'
