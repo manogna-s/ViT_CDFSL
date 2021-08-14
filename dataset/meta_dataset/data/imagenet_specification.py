@@ -32,7 +32,7 @@ import json
 import os
 
 from absl import logging
-from meta_dataset.data import imagenet_stats
+from dataset.meta_dataset.data import imagenet_stats
 import numpy as np
 import six
 import tensorflow.compat.v1 as tf

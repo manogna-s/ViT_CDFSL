@@ -30,8 +30,8 @@ from __future__ import division
 from __future__ import print_function
 
 from absl import logging
-from meta_dataset.data import dataset_spec as dataset_spec_lib
-from meta_dataset.data import imagenet_specification
+from dataset.meta_dataset.data import dataset_spec as dataset_spec_lib
+from dataset.meta_dataset.data import imagenet_specification
 import numpy as np
 from six.moves import zip
 

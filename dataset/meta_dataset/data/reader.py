@@ -33,7 +33,7 @@ import functools
 import itertools
 import os
 
-from meta_dataset import data
+from dataset.meta_dataset import data
 import numpy as np
 from six.moves import range
 import tensorflow.compat.v1 as tf

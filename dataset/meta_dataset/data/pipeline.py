@@ -33,12 +33,12 @@ import functools
 
 from absl import logging
 import gin.tf
-from meta_dataset import data
-from meta_dataset.data import decoder
-from meta_dataset.data import learning_spec
-from meta_dataset.data import reader
-from meta_dataset.data import sampling
-from simclr import data_util
+from dataset.meta_dataset import data
+from dataset.meta_dataset.data import decoder
+from dataset.meta_dataset.data import learning_spec
+from dataset.meta_dataset.data import reader
+from dataset.meta_dataset.data import sampling
+# from simclr import data_util
 from six.moves import zip
 import tensorflow._api.v2.compat.v1 as tf
 # import tensorflow.compat.v1 as tf
@@ -232,18 +232,18 @@ def add_simclr_episodes(simclr_episode_fraction, *episode):
       lambda: episode, lambda: convert_to_simclr_episode(*episode))
 
 
-def simclr_augment(image_batch, blur=False):
-  """Apply simclr-style augmentations to a single set of images."""
-  (h, w) = image_batch.shape.as_list()[1:3]
-  image_batch = (image_batch + 1.0) / 2.0
-  image_batch = tf.map_fn(
-      lambda x: data_util.preprocess_for_train(x, h, w, impl='simclrv1'),
-      image_batch)
-  if blur:
-    image_batch = tf.map_fn(lambda x: data_util.random_blur(x, h, w),
-                            image_batch)
-  image_batch = image_batch * 2.0 - 1.0
-  return image_batch
+# def simclr_augment(image_batch, blur=False):
+#   """Apply simclr-style augmentations to a single set of images."""
+#   (h, w) = image_batch.shape.as_list()[1:3]
+#   image_batch = (image_batch + 1.0) / 2.0
+#   image_batch = tf.map_fn(
+#       lambda x: data_util.preprocess_for_train(x, h, w, impl='simclrv1'),
+#       image_batch)
+#   if blur:
+#     image_batch = tf.map_fn(lambda x: data_util.random_blur(x, h, w),
+#                             image_batch)
+#   image_batch = image_batch * 2.0 - 1.0
+#   return image_batch
 
 
 @gin.configurable(allowlist=['support_decoder', 'query_decoder'])

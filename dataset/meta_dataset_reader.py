@@ -4,10 +4,10 @@ import torch
 import numpy as np
 import tensorflow as tf
 from paths import *
-from meta_dataset.data import dataset_spec as dataset_spec_lib
-from meta_dataset.data import learning_spec
-from meta_dataset.data import pipeline
-from meta_dataset.data import config
+from dataset.meta_dataset.data import dataset_spec as dataset_spec_lib
+from dataset.meta_dataset.data import learning_spec
+from dataset.meta_dataset.data import pipeline
+from dataset.meta_dataset.data import config
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'  # Quiet the TensorFlow warnings
